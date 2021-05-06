@@ -175,6 +175,8 @@ services:
     healthcheck:
       test: "exit 0"
     image: "mariadb:10.3"
+    ports:
+      - 3306:3306
     networks:
       bahmni:
         aliases:
@@ -182,6 +184,7 @@ services:
     volumes:
       - "${MYSQL_DATADIR:-mysql-data}:/var/lib/mysql"
       - "${SQL_SCRIPTS_PATH:-./sqls}/mysql:/docker-entrypoint-initdb.d"
+      - ./my.dbz.cnf:/etc/my.cnf.d/my.dbz.cnf
 
   # Bahmni Reports: Standalone Java app to provide Reporting capabilities
   bahmni-reports:
