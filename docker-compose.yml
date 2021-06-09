@@ -184,7 +184,7 @@ services:
     volumes:
       - "${MYSQL_DATADIR:-mysql-data}:/var/lib/mysql"
       - "${SQL_SCRIPTS_PATH:-./sqls}/mysql:/docker-entrypoint-initdb.d"
-      - ./my.dbz.cnf:/etc/my.cnf.d/my.dbz.cnf
+      - ./my.dbz.cnf:/etc/mysql/conf.d/custom.cnf
 
   # Bahmni Reports: Standalone Java app to provide Reporting capabilities
   bahmni-reports:
